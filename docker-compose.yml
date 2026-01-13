@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    container_name: web-app
+    ports:
+      - "8081:3000"
+    volumes:
+      - ./logs:/app/logs      # persistance des logs
+      - ./public:/app/public:ro  # monter le code statique pour dev
+    environment:
+      - APP_MESSAGE=Bonjour Docker
